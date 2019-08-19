@@ -5,6 +5,7 @@ import {
   StyleSheet,
   View,
   Button,
+  AsyncStorage,
 } from 'react-native';
 
 
@@ -39,6 +40,7 @@ export default class CarePlanScreen extends React.Component{
               onPress={() => this.props.navigation.navigate('ActivityLog')}
             />
 
+            <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
 
           </View>
         </ScrollView>
@@ -46,6 +48,11 @@ export default class CarePlanScreen extends React.Component{
       </View>
     );
   }
+
+  _signOutAsync = async () => {
+    await AsyncStorage.clear();
+    this.props.navigation.navigate('Auth');
+  };
 }
 
 CarePlanScreen.navigationOptions = {

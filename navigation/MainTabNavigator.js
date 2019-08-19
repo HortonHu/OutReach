@@ -12,97 +12,57 @@ import SchedulerScreen from '../screens/SchedulerScreen';
 import MailboxScreen from '../screens/MailboxScreen';
 import ResourcesScreen from '../screens/ResourcesScreen';
 
-const config = Platform.select({
-  web: { headerMode: 'screen' },
-  default: {},
-});
-
-
-// CarePlan tab
-const CarePlanStack = createStackNavigator(
-  {
+const CarePlanStack = createStackNavigator({
     CarePlan: CarePlanScreen,
     DailyExercises: DailyExercisesScreen,
     CaregiverLog: CaregiverLogScreen,
     MyProgress: MyProgressScreen,
     ActivityLog: ActivityLogScreen,
-
   },
-  config,
-  {
-    initialRouteName: 'CarePlan',
-  }
 );
+const SchedulerStack = createStackNavigator({
+    Scheduler: SchedulerScreen,
+  },
+);
+const MailboxStack = createStackNavigator({
+    Mailbox: MailboxScreen,
+  },
+);
+const ResourcesStack = createStackNavigator({
+    Resources: ResourcesScreen,
+  },
+);
+
 
 CarePlanStack.navigationOptions = {
   tabBarLabel: 'CarePlan',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
-          : 'md-egg'
-      }
-    />
+    <TabBarIcon focused={focused} name={'md-egg'}/>
   ),
 };
-
-CarePlanStack.path = '';
-
-
-// Scheduler tab
-const SchedulerStack = createStackNavigator(
-  {
-    Scheduler: SchedulerScreen,
-  },
-  config
-);
-
 SchedulerStack.navigationOptions = {
   tabBarLabel: 'Scheduler',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-calendar'} />
+    <TabBarIcon focused={focused} name={'md-calendar'} />
   ),
 };
-
-SchedulerStack.path = '';
-
-
-// Mailbox tab
-const MailboxStack = createStackNavigator(
-  {
-    Mailbox: MailboxScreen,
-  },
-  config
-);
-
-MailboxStack.navigationOptions = {
+MailboxStack.navigtionOptions = {
   tabBarLabel: 'Mailbox',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-mail'} />
   ),
 };
-
-MailboxStack.path = '';
-
-
-// Resources tab
-const ResourcesStack = createStackNavigator(
-  {
-    Resources: ResourcesScreen,
-  },
-  config
-);
-
 ResourcesStack.navigationOptions = {
   tabBarLabel: 'Resources',
   tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-book'} />
+    <TabBarIcon focused={focused} name={'md-book'} />
   ),
 };
 
-ResourcesStack.path = '';
+// CarePlanStack.path = '';
+// SchedulerStack.path = '';
+// MailboxStack.path = '';
+// ResourcesStack.path = '';
 
 
 const tabNavigator = createBottomTabNavigator({

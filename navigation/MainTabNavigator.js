@@ -35,34 +35,28 @@ const ResourcesStack = createStackNavigator({
 
 CarePlanStack.navigationOptions = {
   tabBarLabel: 'CarePlan',
-  tabBarIcon: ({ focused }) => (
+  tabBarIcon: ({focused}) => (
     <TabBarIcon focused={focused} name={'md-egg'}/>
   ),
 };
 SchedulerStack.navigationOptions = {
   tabBarLabel: 'Scheduler',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-calendar'} />
+  tabBarIcon: ({focused}) => (
+    <TabBarIcon focused={focused} name={'md-calendar'}/>
   ),
 };
 MailboxStack.navigationOptions = {
   tabBarLabel: 'Mailbox',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-mail'} />
+  tabBarIcon: ({focused}) => (
+    <TabBarIcon focused={focused} name={'md-mail'}/>
   ),
 };
 ResourcesStack.navigationOptions = {
   tabBarLabel: 'Resources',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={'md-book'} />
+  tabBarIcon: ({focused}) => (
+    <TabBarIcon focused={focused} name={'md-book'}/>
   ),
 };
-
-// CarePlanStack.path = '';
-// SchedulerStack.path = '';
-// MailboxStack.path = '';
-// ResourcesStack.path = '';
-
 
 const tabNavigator = createBottomTabNavigator({
   CarePlanStack,

@@ -10,7 +10,7 @@ import {
 
 
 // export default function CarePlanScreen() {
-export default class CarePlanScreen extends React.Component{
+export default class CarePlanScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
@@ -40,7 +40,7 @@ export default class CarePlanScreen extends React.Component{
               onPress={() => this.props.navigation.navigate('ActivityLog')}
             />
 
-            <Button title="Sign Out" onPress={this._signOutAsync} />
+            <Button title="Sign Out" onPress={this._signOutAsync}/>
 
           </View>
         </ScrollView>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
     ...Platform.select({
       ios: {
         shadowColor: 'black',
-        shadowOffset: { width: 0, height: -3 },
+        shadowOffset: {width: 0, height: -3},
         shadowOpacity: 0.1,
         shadowRadius: 3,
       },

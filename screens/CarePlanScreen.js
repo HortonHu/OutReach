@@ -40,7 +40,7 @@ export default class CarePlanScreen extends React.Component{
               onPress={() => this.props.navigation.navigate('ActivityLog')}
             />
 
-            <Button title="Actually, sign me out :)" onPress={this._signOutAsync} />
+            <Button title="Sign Out" onPress={this._signOutAsync} />
 
           </View>
         </ScrollView>

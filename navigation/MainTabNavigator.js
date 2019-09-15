@@ -10,6 +10,7 @@ import ActivityLogScreen from '../screens/ActivityLogScreen';
 import SchedulerScreen from '../screens/SchedulerScreen';
 import MailboxScreen from '../screens/MailboxScreen';
 import ResourcesScreen from '../screens/ResourcesScreen';
+import ExerciseVideoScreen from '../screens/ExerciseVideoScreen';
 
 const CarePlanStack = createStackNavigator({
     CarePlan: CarePlanScreen,
@@ -17,6 +18,7 @@ const CarePlanStack = createStackNavigator({
     CaregiverLog: CaregiverLogScreen,
     MyProgress: MyProgressScreen,
     ActivityLog: ActivityLogScreen,
+    ExerciseVideo: ExerciseVideoScreen,
   },
 );
 const SchedulerStack = createStackNavigator({

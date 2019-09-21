@@ -18,13 +18,14 @@ export default class CarePlanScreen extends React.Component {
             <Button
               title="Daily Exercises"
               onPress={() => this.props.navigation.navigate('DailyExercises')}
-              styles={styles.button}
+              color="darkgray"
             />
           </View>
           <View style={styles.buttonContainer}>
             <Button
               title="Caregiver Log"
               onPress={() => this.props.navigation.navigate('CaregiverLog')}
+              color="darkgray"
             />
           </View>
         </View>
@@ -34,17 +35,24 @@ export default class CarePlanScreen extends React.Component {
             <Button
               title="My Progress"
               onPress={() => this.props.navigation.navigate('MyProgress')}
+              color="darkgray"
             />
           </View>
           <View style={styles.buttonContainer}>
             <Button
               title="Activity Log"
               onPress={() => this.props.navigation.navigate('ActivityLog')}
+              color="darkgray"
             />
           </View>
         </View>
 
-        <Button color='red' title="Sign Out" onPress={this._signOutAsync}/>
+        <Button
+          color='red'
+          title="Sign Out"
+          onPress={this._signOutAsync}
+        />
+
 
       </View>
     );

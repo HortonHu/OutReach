@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-  Platform,
-  ScrollView,
   StyleSheet,
   View,
   Button,
@@ -13,37 +11,40 @@ import {
 export default class CarePlanScreen extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView
-          style={styles.container}
-          contentContainerStyle={styles.contentContainer}>
+      <View style={styles.planContainer}>
 
-          <View style={styles.getStartedContainer}>
-
+        <View style={styles.buttonRowContainer}>
+          <View style={styles.buttonContainer}>
             <Button
-              title="Go to Daily Exercises"
+              title="Daily Exercises"
               onPress={() => this.props.navigation.navigate('DailyExercises')}
+              styles={styles.button}
             />
-
+          </View>
+          <View style={styles.buttonContainer}>
             <Button
-              title="Go to Caregiver Log"
+              title="Caregiver Log"
               onPress={() => this.props.navigation.navigate('CaregiverLog')}
             />
+          </View>
+        </View>
 
+        <View style={styles.buttonRowContainer}>
+          <View style={styles.buttonContainer}>
             <Button
-              title="Go to My Progress"
+              title="My Progress"
               onPress={() => this.props.navigation.navigate('MyProgress')}
             />
-
+          </View>
+          <View style={styles.buttonContainer}>
             <Button
-              title="Go to Activity Log"
+              title="Activity Log"
               onPress={() => this.props.navigation.navigate('ActivityLog')}
             />
-
-            <Button title="Sign Out" onPress={this._signOutAsync}/>
-
           </View>
-        </ScrollView>
+        </View>
+
+        <Button color='red' title="Sign Out" onPress={this._signOutAsync}/>
 
       </View>
     );
@@ -61,90 +62,18 @@ CarePlanScreen.navigationOptions = {
 
 
 const styles = StyleSheet.create({
-  container: {
+  planContainer: {
     flex: 1,
-    backgroundColor: '#fff',
+    alignContent: 'center',
+    justifyContent: 'space-around',
+    // flexWrap: 'wrap',
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
+  buttonRowContainer: {
+    // flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-around',
   },
-  contentContainer: {
-    paddingTop: 30,
-  },
-  welcomeContainer: {
-    alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: {width: 0, height: -3},
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
-  navigationFilename: {
-    marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
+  buttonContainer: {
+    // flex: 1,
   },
 });

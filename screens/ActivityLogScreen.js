@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Button, Text, StyleSheet, TouchableNativeFeedback, ScrollView} from 'react-native';
+import { View, Button, Text, StyleSheet, TouchableNativeFeedback, ScrollView, AsyncStorage } from 'react-native';
 
 export default class ActivityLogScreen extends React.Component {
   state = {
@@ -57,7 +57,8 @@ export default class ActivityLogScreen extends React.Component {
         <TouchableNativeFeedback
           key={item}
           onPress={() => {
-            this.setState({Q2selectedIndex: index})
+            this.setState({Q2selectedIndex: index});
+
           }}
         >
           <View style={{
@@ -105,6 +106,10 @@ export default class ActivityLogScreen extends React.Component {
       </ScrollView>
     );
   }
+
+  _saveChoicesAsync = async (question, selectedIndex) => {
+    await AsyncStorage.setItem(question, selectedIndex);
+  };
 }
 
 ActivityLogScreen.navigationOptions = {

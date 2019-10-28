@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, View, TextInput, Text } from 'react-native';
+import { StyleSheet, Button, View, TextInput, Text, TouchableNativeFeedback } from 'react-native';
 
 
 export default class DailyExercisesScreen extends React.Component {
@@ -19,14 +19,20 @@ export default class DailyExercisesScreen extends React.Component {
       videos.forEach((videoName) => {
 
         videoButtons.push(
-          <Button
+          <TouchableNativeFeedback
             key={videoName.toString()}
-            title={videoName.toString()}
             onPress={() => this.props.navigation.navigate('ExerciseVideo', {
               videoName: videoName
             })}
-            styles={styles.button}
-          />
+          >
+            <View
+              style={styles.button}
+            >
+              <Text style={{color:'white'}}>{videoName.toString()}</Text>
+            </View>
+
+          </TouchableNativeFeedback>
+
         );
       });
 
@@ -37,7 +43,9 @@ export default class DailyExercisesScreen extends React.Component {
       <View style={styles.container}>
         <Text>Daily Exercises Screen</Text>
 
-        {createVideos()}
+        <View style={styles.buttonsContainer}>
+          {createVideos()}
+        </View>
       </View>
     );
   }
@@ -53,4 +61,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-around'
   },
+  buttonsContainer: {
+    flex: 1,
+    alignItems: 'center',
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: 'gray',
+    width: "100%",
+    marginHorizontal: 20,
+    marginVertical: 20,
+  }
 });

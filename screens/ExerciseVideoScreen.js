@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Button, View, TextInput, Text } from 'react-native';
+import { StyleSheet, Button, View, TextInput, Text, AsyncStorage } from 'react-native';
 import { Video } from 'expo-av';
 
 
@@ -84,11 +84,27 @@ export default class exerciseVideoScreen extends React.Component {
               value={this.state.set3_num}
             />
           </View>
+
+          <Button
+            title="Save"
+            onPress={() => {
+              // AsyncStorage.setItem(videoName, {});
+              this._saveDataAsync(videoName, );
+              alert('save');
+            }}
+          />
         </View>
+
 
       </View>
     );
   }
+
+  _saveDataAsync = async (videoName, set1_num, set2_num, set3_num) => {
+    await AsyncStorage.setItem(videoName + "set1", set1_num);
+    await AsyncStorage.setItem(videoName + "set2", set2_num);
+    await AsyncStorage.setItem(videoName + "set3", set3_num);
+  };
 };
 
 exerciseVideoScreen.navigationOptions = {

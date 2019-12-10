@@ -61,6 +61,7 @@ ResourcesStack.navigationOptions = {
 };
 
 const tabNavigator = createBottomTabNavigator({
+  // first screen is the default one
   CarePlanStack,
   SchedulerStack,
   MailboxStack,

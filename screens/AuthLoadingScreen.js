@@ -1,5 +1,6 @@
 import React from 'react';
 import { ActivityIndicator, StatusBar, View, AsyncStorage, StyleSheet } from 'react-native';
+import SignInScreen from "./SignInScreen";
 
 export default class AuthLoadingScreen extends React.Component {
   constructor() {
@@ -11,6 +12,8 @@ export default class AuthLoadingScreen extends React.Component {
   _bootstrapAsync = async () => {
     const userToken = await AsyncStorage.getItem('userToken');
 
+    // If not login, go to SignIn screen
+    // Else, go to CarePlan screen
     this.props.navigation.navigate(userToken ? 'Main' : 'Auth');
   };
 

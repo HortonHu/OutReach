@@ -8,7 +8,7 @@ import CaregiverLogScreen from '../screens/CaregiverLogScreen';
 import MyProgressScreen from '../screens/MyProgressScreen';
 import ActivityLogScreen from '../screens/ActivityLogScreen';
 import SchedulerScreen from '../screens/SchedulerScreen';
-import MailboxScreen from '../screens/MailboxScreen';
+import MessageScreen from '../screens/MessageScreen';
 import ResourcesScreen from '../screens/ResourcesScreen';
 import ExerciseVideoScreen from '../screens/ExerciseVideoScreen';
 
@@ -25,8 +25,8 @@ const SchedulerStack = createStackNavigator({
     Scheduler: SchedulerScreen,
   },
 );
-const MailboxStack = createStackNavigator({
-    Mailbox: MailboxScreen,
+const MessageStack = createStackNavigator({
+    Message: MessageScreen,
   },
 );
 const ResourcesStack = createStackNavigator({
@@ -47,8 +47,8 @@ SchedulerStack.navigationOptions = {
     <TabBarIcon focused={focused} name={'md-calendar'}/>
   ),
 };
-MailboxStack.navigationOptions = {
-  tabBarLabel: 'Mailbox',
+MessageStack.navigationOptions = {
+  tabBarLabel: 'Message',
   tabBarIcon: ({focused}) => (
     <TabBarIcon focused={focused} name={'md-mail'}/>
   ),
@@ -64,7 +64,7 @@ const tabNavigator = createBottomTabNavigator({
   // first screen is the default one
   CarePlanStack,
   SchedulerStack,
-  MailboxStack,
+  MessageStack,
   ResourcesStack,
 });
 

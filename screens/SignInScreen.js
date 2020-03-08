@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, AsyncStorage, StyleSheet, Text, TextInput, TouchableNativeFeedback } from 'react-native';
+import { Button, View, AsyncStorage, StyleSheet, Text, TextInput, TouchableNativeFeedback, Image } from 'react-native';
 
 export default class SignInScreen extends React.Component {
   state = {
@@ -23,7 +23,11 @@ export default class SignInScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.title}>OutReach</Text>
+        <Image
+          source={require('../assets/images/outREACH_Logo.png')}
+          style={styles.logo}
+        />
+
         <Text style={styles.introduction}>Bringing rehabilitation from the clinic to your home</Text>
 
         <TextInput
@@ -70,6 +74,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: '#2D3A4B',
+  },
+  logo: {
+    // width: '80%',
+    // height: '80%',
   },
   title: {
     fontWeight: 'bold',

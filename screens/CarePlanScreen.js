@@ -4,6 +4,8 @@ import {
   View,
   Button,
   AsyncStorage,
+  TouchableOpacity,
+  Image
 } from 'react-native';
 
 
@@ -15,6 +17,11 @@ export default class CarePlanScreen extends React.Component {
 
         <View style={styles.buttonRowContainer}>
           <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('DailyExercises')}
+            >
+              <Image source={require('../assets/images/Daily_Exercises.png')} />
+            </TouchableOpacity>
             <Button
               title="Daily Exercises"
               onPress={() => this.props.navigation.navigate('DailyExercises')}
@@ -22,6 +29,11 @@ export default class CarePlanScreen extends React.Component {
             />
           </View>
           <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('CaregiverLog')}
+            >
+              <Image source={require('../assets/images/Care_Giver_Log.png')} />
+            </TouchableOpacity>
             <Button
               title="Caregiver Log"
               onPress={() => this.props.navigation.navigate('CaregiverLog')}
@@ -32,6 +44,11 @@ export default class CarePlanScreen extends React.Component {
 
         <View style={styles.buttonRowContainer}>
           <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('MyProgress')}
+            >
+              <Image source={require('../assets/images/My_Progress.png')} />
+            </TouchableOpacity>
             <Button
               title="My Progress"
               onPress={() => this.props.navigation.navigate('MyProgress')}
@@ -39,6 +56,11 @@ export default class CarePlanScreen extends React.Component {
             />
           </View>
           <View style={styles.buttonContainer}>
+            <TouchableOpacity
+              onPress={() => this.props.navigation.navigate('ActivityLog')}
+            >
+              <Image source={require('../assets/images/Activity_Log.png')} />
+            </TouchableOpacity>
             <Button
               title="Activity Log"
               onPress={() => this.props.navigation.navigate('ActivityLog')}
@@ -82,6 +104,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   buttonContainer: {
-    // flex: 1,
+    flex: 1,
+    width: '50%',
+    alignContent: 'center',
+    justifyContent: 'center',
   },
 });

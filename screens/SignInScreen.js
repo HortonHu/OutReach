@@ -76,8 +76,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#2D3A4B',
   },
   logo: {
-    // width: '80%',
-    // height: '80%',
+    width: 300,
+    height: 75,
   },
   title: {
     fontWeight: 'bold',

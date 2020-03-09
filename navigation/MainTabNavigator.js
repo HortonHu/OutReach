@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
@@ -11,6 +12,7 @@ import SchedulerScreen from '../screens/SchedulerScreen';
 import MessageScreen from '../screens/MessageScreen';
 import ResourcesScreen from '../screens/ResourcesScreen';
 import ExerciseVideoScreen from '../screens/ExerciseVideoScreen';
+import MaterialDetailScreen from "../screens/MaterialDetailScreen";
 
 const CarePlanStack = createStackNavigator({
     CarePlan: CarePlanScreen,
@@ -20,17 +22,30 @@ const CarePlanStack = createStackNavigator({
     ActivityLog: ActivityLogScreen,
     ExerciseVideo: ExerciseVideoScreen,
   },
+  {
+    headerLayoutPreset: 'center',
+  },
 );
 const SchedulerStack = createStackNavigator({
     Scheduler: SchedulerScreen,
+  },
+  {
+    headerLayoutPreset: 'center',
   },
 );
 const MessageStack = createStackNavigator({
     Message: MessageScreen,
   },
+  {
+    headerLayoutPreset: 'center',
+  },
 );
 const ResourcesStack = createStackNavigator({
     Resources: ResourcesScreen,
+    MaterialDetail: MaterialDetailScreen,
+  },
+  {
+    headerLayoutPreset: 'center',
   },
 );
 
@@ -66,7 +81,15 @@ const tabNavigator = createBottomTabNavigator({
   SchedulerStack,
   MessageStack,
   ResourcesStack,
-});
+},
+  {
+    tabBarOptions: {
+      style: {
+        backgroundColor: '#2D3A4B',
+      }
+    }
+  }
+  );
 
 tabNavigator.path = '';
 
